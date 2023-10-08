@@ -1,2 +1,4 @@
-# network
-An open source event application with a Generative Matching Algorithm for connecting attendees
+# Network
+Network is nn open source mobile event application for making event information discovery easier, and connecting with other attendees more efficient. It leverages a custom-build  Generative Matching Algorithm for matching attendees together.  
+
+More information coming soon. 
