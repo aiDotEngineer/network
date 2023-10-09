@@ -1,0 +1,12 @@
+{
+  "extends": "@pkg/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "jsx": "react-native",
+    "types": ["webpack-env"]
+  },
+  "include": ["src"]
+}

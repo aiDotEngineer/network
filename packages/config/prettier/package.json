@@ -1,0 +1,6 @@
+{
+  "name": "@pkg/prettier-config",
+  "version": "0.1.0",
+  "main": "prettier.config.json",
+  "private": true
+}

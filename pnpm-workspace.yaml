@@ -1,0 +1,8 @@
+packages:
+  - apps/mobile
+  - apps/web
+  - packages/api
+  - packages/db
+  - packages/support
+  - packages/ui
+  - packages/config/*

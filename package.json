@@ -1,0 +1,37 @@
+{
+  "name": "aie",
+  "scripts": {
+    "build": "turbo build",
+    "clean": "turbo clean",
+    "clean:workspaces": "turbo clean",
+    "db:generate": "turbo db:generate",
+    "db:push": "turbo db:push db:generate",
+    "db:studio": "pnpm -F db db:studio",
+    "dev": "pnpm -F aie-web dev",
+    "dev:expo": "pnpm -F aie-mobile dev",
+    "expo:clean": "pnpm -F aie-mobile clean",
+    "format": "turbo format && prettier --write *.*",
+    "format:check": "turbo format:check && prettier --check *.*",
+    "lint": "turbo lint && manypkg check",
+    "lint:fix": "turbo lint:fix && manypkg fix",
+    "typecheck": "turbo typecheck",
+    "test": "turbo typecheck lint format:check && prettier --check *.* && manypkg check",
+    "test:force": "turbo --force true typecheck lint format:check && prettier --check *.* && manypkg check"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@manypkg/cli": "^0.21.0",
+    "@pkg/prettier-config": "^0.1.0",
+    "@pkg/typescript-config": "^0.1.0",
+    "dotenv-cli": "^7.2.1",
+    "prettier": "^3.0.0",
+    "turbo": "^1.10.13",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=v18.16.0"
+  },
+  "packageManager": "pnpm@8.6.7",
+  "prettier": "@pkg/prettier-config",
+  "private": true
+}

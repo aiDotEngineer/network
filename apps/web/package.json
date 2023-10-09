@@ -1,0 +1,49 @@
+{
+  "name": "aie-web",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "pnpm with-env next build",
+    "clean": "rm -rf .next .turbo next-env.d.ts",
+    "dev": "pnpm with-env next dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint --max-warnings 0",
+    "lint:fix": "pnpm lint --fix",
+    "start": "pnpm with-env next start",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@pkg/api": "^0.1.0",
+    "@pkg/db": "^0.1.0",
+    "@pkg/support": "^0.1.0",
+    "@t3-oss/env-nextjs": "^0.6.0",
+    "@tanstack/react-query": "^4.29.23",
+    "@trpc/client": "^10.34.0",
+    "@trpc/next": "^10.34.0",
+    "@trpc/react-query": "^10.34.0",
+    "@trpc/server": "^10.34.0",
+    "next": "^13.4.9",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "superjson": "1.9.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@pkg/eslint-config": "^0.2.0",
+    "@pkg/prettier-config": "^0.1.0",
+    "@types/eslint": "^8.44.0",
+    "@types/node": "^18.16.5",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
+  },
+  "browserslist": "defaults, not ie <= 11",
+  "ct3aMetadata": {
+    "initVersion": "7.13.2"
+  },
+  "prettier": "@pkg/prettier-config",
+  "private": true
+}

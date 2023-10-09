@@ -1,0 +1,10 @@
+{
+  "name": "@pkg/typescript-config",
+  "version": "0.1.0",
+  "main": "./reset.d.ts",
+  "types": "./reset.d.ts",
+  "dependencies": {
+    "@total-typescript/ts-reset": "^0.5.1"
+  },
+  "private": true
+}

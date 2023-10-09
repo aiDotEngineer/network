@@ -1,0 +1,28 @@
+{
+  "name": "@pkg/support",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@intl/t": "^1.1.0",
+    "@pkg/db": "^0.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@pkg/eslint-config": "^0.2.0",
+    "@pkg/prettier-config": "^0.1.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
+  },
+  "prettier": "@pkg/prettier-config",
+  "private": true
+}

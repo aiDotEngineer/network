@@ -1,0 +1,53 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["**/.env", "tsconfig.json"],
+  "pipeline": {
+    "db:generate": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
+    "db:push": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build", "@pkg/db#db:generate"],
+      "outputs": [".next/**", ".expo/**"]
+    },
+    "format": {},
+    "format:check": {},
+    "lint": {
+      "dependsOn": ["@pkg/db#db:generate"],
+      "cache": false
+    },
+    "lint:fix": {
+      "dependsOn": ["@pkg/db#db:generate"],
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["@pkg/db#db:generate"],
+      "cache": false
+    }
+  },
+  "globalEnv": [
+    "CI",
+    "CMS_API_KEY",
+    "TITO_API_KEY",
+    "DESCOPE_PROJECT_ID",
+    "DESCOPE_API_KEY",
+    "CMS_HOST",
+    "DATABASE_URL",
+    "EXPO_API_HOST",
+    "EXPO_ROUTER_APP_ROOT",
+    "LOOPS_API_KEY",
+    "NODE_ENV",
+    "OPENAI_API_KEY",
+    "PORT",
+    "SKIP_ENV_VALIDATION",
+    "VERCEL_URL",
+    "VERCEL"
+  ]
+}

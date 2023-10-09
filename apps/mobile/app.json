@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "AIE Summit",
+    "slug": "aie-mobile",
+    "scheme": "aie-mobile",
+    "version": "0.0.0",
+    "owner": "aie",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.example.app",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.example.app",
+      "versionCode": 0
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      [
+        "expo-updates",
+        {
+          "username": "aie"
+        }
+      ]
+    ],
+    "extra": {
+      "productionApiHost": "https://api.example.com",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "YOUR_PROJECT_ID"
+      }
+    },
+    "updates": {
+      "url": "YOUR_UPDATE_URL"
+    }
+  }
+}

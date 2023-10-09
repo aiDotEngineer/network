@@ -1,0 +1,33 @@
+{
+  "name": "@pkg/db",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo",
+    "db:generate": "pnpm with-env prisma generate",
+    "db:push": "pnpm with-env prisma db push --skip-generate",
+    "db:studio": "pnpm with-env prisma studio --port 5556",
+    "with-env": "dotenv -e ../../.env --",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "pnpm lint --fix",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "pnpm db:generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0"
+  },
+  "devDependencies": {
+    "@pkg/eslint-config": "^0.2.0",
+    "@pkg/prettier-config": "^0.1.0",
+    "@pkg/typescript-config": "^0.1.0",
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^8.45.0",
+    "prisma": "^5.0.0",
+    "typescript": "^5.1.6"
+  },
+  "prettier": "@pkg/prettier-config",
+  "private": true
+}

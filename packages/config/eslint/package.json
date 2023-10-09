@@ -1,0 +1,28 @@
+{
+  "name": "@pkg/eslint-config",
+  "version": "0.2.0",
+  "files": [
+    "./base.js",
+    "./nextjs.js",
+    "./react.js"
+  ],
+  "dependencies": {
+    "@next/eslint-plugin-next": "^13.4.8",
+    "@types/eslint": "^8.44.0",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-turbo": "^1.10.7",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-t": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
+  },
+  "private": true
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@pkg/api",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "pnpm lint --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pkg/db": "^0.1.0",
+    "@pkg/support": "^0.1.0",
+    "@trpc/client": "^10.34.0",
+    "@trpc/server": "^10.34.0",
+    "openai": "^4.11.1",
+    "pg": "8.8.0",
+    "superjson": "1.9.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@pkg/eslint-config": "^0.2.0",
+    "@pkg/prettier-config": "^0.1.0",
+    "@pkg/typescript-config": "^0.1.0",
+    "@types/pg": "^8.10.3",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
+  },
+  "prettier": "@pkg/prettier-config",
+  "private": true
+}

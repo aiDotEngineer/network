@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserEmail {
+  id           String       @id @default(cuid())
+  emailAddress String       @unique
+  profile      UserProfile?
+  subscribed   Boolean
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model UserProfile {
+  id             String                 @id @default(cuid())
+  email          UserEmail              @relation(fields: [emailId], references: [id])
+  emailId        String                 @unique
+  firstName      String
+  lastName       String
+  company        String
+  jobTitle       String
+  socialLinkedIn String?
+  socialTwitter  String?
+  socialBlog     String?
+  socialOther    String?
+  career         String?
+  surveyAnswers  SurveyAnswer[]
+  booleanAnswers ProfileBooleanAnswer[]
+  embeddings     UserEmbedding?
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+}
+
+model UserEmbedding {
+  id                            String                 @id @default(cuid())
+  userProfile                   UserProfile            @relation(fields: [userProfileId], references: [id])
+  userProfileId                 String
+  embedding_building_what       Unsupported("vector")?
+  embedding_want_to_learn       Unsupported("vector")?
+  embedding_technologies        Unsupported("vector")?
+  embedding_ask_problem_solve   Unsupported("vector")?
+  embedding_give_provide_others Unsupported("vector")?
+
+  @@unique([userProfileId])
+}
+
+enum SurveyQuestion {
+  BUILDING_WHAT
+  WANT_TO_LEARN
+  WANT_TO_HEAR
+  TECHNOLOGIES
+  ASK_PROBLEM_SOLVE
+  GIVE_PROVIDE_OTHERS
+}
+
+model SurveyAnswer {
+  id            String         @id @default(cuid())
+  userProfile   UserProfile    @relation(fields: [userProfileId], references: [id])
+  userProfileId String
+  question      SurveyQuestion
+  answer        String
+
+  @@unique([userProfileId, question])
+}
+
+enum ProfileBooleanQuestion {
+  OPEN_TO_OPPORTUNITIES
+  INTERESTED_IN_HIRING
+  SEEKING_CO_FOUNDERS
+  INTERESTED_IN_DEMOING
+  SEEKING_CUSTOMERS
+}
+
+model ProfileBooleanAnswer {
+  id            String                 @id @default(cuid())
+  userProfile   UserProfile            @relation(fields: [userProfileId], references: [id])
+  userProfileId String
+  question      ProfileBooleanQuestion
+  answer        Boolean
+
+  @@unique([userProfileId, question])
+}
